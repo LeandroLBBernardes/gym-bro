@@ -17,7 +17,7 @@ class H1 extends StatelessWidget {
           text,
           style: const TextStyle(
             fontWeight: FontWeight.bold,
-            fontSize: 32
+            fontSize: 36
           ),
         ),
         const Gap()

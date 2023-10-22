@@ -3,7 +3,7 @@ import 'package:flutter/widgets.dart';
 class Gap extends StatelessWidget {
   const Gap({
     Key? key,
-    this.gapSize = 24
+    this.gapSize = 16
   }) : super(key: key);
 
   final double gapSize;
