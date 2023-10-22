@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:trabalho_faculdade/enums/button_type_enum.dart';
 import 'package:trabalho_faculdade/widgets/gap.dart';
 import 'package:trabalho_faculdade/widgets/h1_widget.dart';
 import 'package:trabalho_faculdade/widgets/outline_button.dart';
 
-class PresentationScreen extends StatefulWidget {
-  const PresentationScreen({Key? key}) : super(key: key);
+class RegisterScreen extends StatefulWidget {
+  const RegisterScreen({Key? key}) : super(key: key);
 
   @override
-  State<PresentationScreen> createState() => PresentationScreenState();
+  State<RegisterScreen> createState() => RegisterScreenState();
 }
 
-class PresentationScreenState extends State<PresentationScreen> {
+class RegisterScreenState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
+      appBar: AppBar(),
       body: Padding(
         padding: const EdgeInsets.all(32),
         child: Column(
@@ -44,18 +44,14 @@ class PresentationScreenState extends State<PresentationScreen> {
             ),
             OutlineButton(
               text: 'Login', 
-              action: () {
-                GoRouter.of(context).push('/login');
-              },
+              action: (){},
               rounded: true,
               buttonType: ButtonType.primary,
             ),
             const Gap(),
             OutlineButton(
               text: 'Cadastre-se', 
-              action: () {
-                GoRouter.of(context).push('/login');
-              },
+              action: (){},
               rounded: true,
               buttonType: ButtonType.secondary,
             )
