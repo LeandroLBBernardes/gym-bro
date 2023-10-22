@@ -6,12 +6,16 @@ class DefaultTextField extends StatelessWidget {
   final String hintText;
   final String labelText;
   final String type;
+  final ValueChanged<String>? onChange;
+  final bool error;
 
   const DefaultTextField({
     Key? key,
     required this.hintText,
+    required this.onChange,
     this.type = 'text',
     this.labelText = '',
+    this.error = false
   }) : super(key: key);
 
   TextInputType getType() {
@@ -54,13 +58,20 @@ class DefaultTextField extends StatelessWidget {
                   color: Color(ColorStyles.black.hexCode)
                 ),
               ),
+              enabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(
+                  width: 1, 
+                  color: error ? Color(ColorStyles.red.hexCode) : Color(ColorStyles.black.hexCode)
+                ),
+              ),
               border: const OutlineInputBorder(),
               hintText: hintText,
               labelStyle: TextStyle(
                 color: Color(ColorStyles.black.hexCode)
               ),
             ),
-            style: const TextStyle(fontSize: 16)
+            style: const TextStyle(fontSize: 16),
+            onChanged: onChange,
           ),
         )
       ],

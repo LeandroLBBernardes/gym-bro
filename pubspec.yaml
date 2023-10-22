@@ -46,12 +46,12 @@ flutter_native_splash:
   ios: true
 
 flutter_icons:
-  image_path: "assets/musculos_256.png"
+  image_path: "assets/musculos_512_raw.png"
   ios: true
   remove_alpha_ios: true
   android: "launcher_icon"
   adaptative_icon_background: "#000000"
-  adaptative_icon_foreground: "assets/musculos_256.png"
+  adaptative_icon_foreground: "assets/musculos_512_raw.png"
 
 dev_dependencies:
   flutter_test:

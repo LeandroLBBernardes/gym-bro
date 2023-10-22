@@ -26,27 +26,39 @@ class RegisterScreenState extends State<RegisterScreen> {
           children: [
             const H1(text: 'Cadastro'),
             const Gap(),
-            const DefaultTextField(
+            DefaultTextField(
               hintText: 'Digite seu nome',
               labelText: 'Nome:',
+              onChange: (String value) async {
+                
+              },
             ),
             const Gap(),
-            const DefaultTextField(
+            DefaultTextField(
               hintText: 'Digite seu email',
               labelText: 'Email:',
               type: 'email',
+              onChange: (String value) async {
+                
+              },
             ),
             const Gap(),
-            const DefaultTextField(
+            DefaultTextField(
               hintText: 'Digite sua senha',
               labelText: 'Senha:',
               type: 'password',
+              onChange: (String value) async {
+                
+              },
             ),
             const Gap(),
-            const DefaultTextField(
+            DefaultTextField(
               hintText: 'Digite sua senha',
               labelText: 'Confirme a senha:',
-              type: 'password'
+              type: 'password',
+              onChange: (String value) async {
+                
+              },
             ),
             const Gap(),
             OutlineButton(
