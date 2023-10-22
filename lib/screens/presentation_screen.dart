@@ -29,13 +29,13 @@ class PresentationScreenState extends State<PresentationScreen> {
                 children: [
                   Image(
                     image: const AssetImage('assets/musculos_512_raw.png'), 
-                    width: MediaQuery.of(context).size.width*0.32,
+                    width: MediaQuery.of(context).size.width*0.34,
                   ),
                   const H1(text: 'Gym Bro'),
                   const Text(
                     'Ache seu parceiro!',
                     style: TextStyle(
-                      fontSize: 18,
+                      fontSize: 20,
                       fontWeight: FontWeight.w400
                     ),
                   ),
@@ -52,9 +52,9 @@ class PresentationScreenState extends State<PresentationScreen> {
             ),
             const Gap(),
             OutlineButton(
-              text: 'Cadastre-se', 
+              text: 'Cadastro', 
               action: () {
-                GoRouter.of(context).push('/login');
+                GoRouter.of(context).push('/register');
               },
               rounded: true,
               buttonType: ButtonType.secondary,

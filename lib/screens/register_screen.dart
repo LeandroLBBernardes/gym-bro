@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:trabalho_faculdade/enums/button_type_enum.dart';
-import 'package:trabalho_faculdade/widgets/gap.dart';
+import 'package:trabalho_faculdade/enums/colors_enum.dart';
 import 'package:trabalho_faculdade/widgets/h1_widget.dart';
 import 'package:trabalho_faculdade/widgets/outline_button.dart';
 
@@ -22,38 +23,26 @@ class RegisterScreenState extends State<RegisterScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Expanded(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Image(
-                    image: const AssetImage('assets/musculos_512_raw.png'), 
-                    width: MediaQuery.of(context).size.width*0.32,
-                  ),
-                  const H1(text: 'Gym Bro'),
-                  const Text(
-                    'Ache seu parceiro!',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w400
-                    ),
-                  ),
-                ],
-              )
-            ),
+            const H1(text: 'Cadastro'),
             OutlineButton(
-              text: 'Login', 
+              text: 'Cadastrar', 
               action: (){},
               rounded: true,
               buttonType: ButtonType.primary,
             ),
-            const Gap(),
-            OutlineButton(
-              text: 'Cadastre-se', 
-              action: (){},
-              rounded: true,
-              buttonType: ButtonType.secondary,
+            TextButton(
+              onPressed: () {
+                GoRouter.of(context).pushReplacement('/login');
+              }, 
+              style: TextButton.styleFrom(
+                foregroundColor: Color(ColorStyles.black.hexCode)// Text Color
+              ),
+              child: const Text(
+                'Já possui uma conta? Faça o Login',
+                style: TextStyle(
+                  fontSize: 15
+                ),
+              )
             )
           ],
         ),

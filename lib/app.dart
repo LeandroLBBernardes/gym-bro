@@ -14,7 +14,8 @@ class App extends StatelessWidget {
 
         theme: ThemeData(
           appBarTheme: AppBarTheme(
-            color: Color(ColorStyles.black.hexCode)
+            color: Color(ColorStyles.black.hexCode),
+            elevation: 0
           ),
           scaffoldBackgroundColor: Color(ColorStyles.white.hexCode),
           fontFamily: 'Roboto',

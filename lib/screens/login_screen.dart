@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:trabalho_faculdade/enums/button_type_enum.dart';
+import 'package:trabalho_faculdade/enums/colors_enum.dart';
 import 'package:trabalho_faculdade/widgets/gap.dart';
 import 'package:trabalho_faculdade/widgets/h1_widget.dart';
 import 'package:trabalho_faculdade/widgets/outline_button.dart';
+import 'package:trabalho_faculdade/widgets/textfield_widget.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -22,38 +25,37 @@ class LoginScreenState extends State<LoginScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Expanded(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Image(
-                    image: const AssetImage('assets/musculos_512_raw.png'), 
-                    width: MediaQuery.of(context).size.width*0.32,
-                  ),
-                  const H1(text: 'Gym Bro'),
-                  const Text(
-                    'Ache seu parceiro!',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w400
-                    ),
-                  ),
-                ],
-              )
+            const H1(text: 'Login'),
+            const DefaultTextField(
+              hintText: 'Digite seu email',
+              labelText: 'Email:',
+              type: 'email',
             ),
-            OutlineButton(
-              text: 'Login', 
-              action: (){},
-              rounded: true,
-              buttonType: ButtonType.primary,
+            const Gap(),
+            const DefaultTextField(
+              hintText: 'Digite sua senha',
+              labelText: 'Senha:',
+              type: 'password',
             ),
             const Gap(),
             OutlineButton(
-              text: 'Cadastre-se', 
+              text: 'Login', 
               action: (){},
-              rounded: true,
-              buttonType: ButtonType.secondary,
+              buttonType: ButtonType.primary,
+            ),
+            TextButton(
+              onPressed: () {
+                GoRouter.of(context).pushReplacement('/register');
+              }, 
+              style: TextButton.styleFrom(
+                foregroundColor: Color(ColorStyles.black.hexCode)// Text Color
+              ),
+              child: const Text(
+                'Cadastre-se',
+                style: TextStyle(
+                  fontSize: 15
+                ),
+              )
             )
           ],
         ),
