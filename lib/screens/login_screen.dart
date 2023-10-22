@@ -19,7 +19,6 @@ class LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      appBar: AppBar(),
       body: Padding(
         padding: const EdgeInsets.all(32),
         child: Column(
@@ -40,7 +39,10 @@ class LoginScreenState extends State<LoginScreen> {
             const Gap(),
             OutlineButton(
               text: 'Login', 
-              action: (){},
+              action: (){
+                GoRouter.of(context).go('/home');
+              },
+              rounded: true,
               buttonType: ButtonType.primary,
             ),
             TextButton(
