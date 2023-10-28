@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:trabalho_faculdade/enums/button_type_enum.dart';
 import 'package:trabalho_faculdade/widgets/h1_widget.dart';
+import 'package:trabalho_faculdade/widgets/h3_widget.dart';
 import 'package:trabalho_faculdade/widgets/outline_button.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  const HomeScreen({Key? key, required this.email}) : super(key: key);
+
+  final String email;
 
   @override
   State<HomeScreen> createState() => HomeScreenState();
@@ -15,12 +19,20 @@ class HomeScreenState extends State<HomeScreen> {
 
   void showLoading() {
     setState(() {
-      loading = !loading;
+      loading = true;
     });
+    backInit();
+  }
+
+  void backInit() async {
+    await Future.delayed(const Duration(seconds: 1));
+    GoRouter.of(context).go('/');
   }
 
   @override
   Widget build(BuildContext context) {
+    var userEmail = widget.email;
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Home Page'),
@@ -30,12 +42,13 @@ class HomeScreenState extends State<HomeScreen> {
         padding: const EdgeInsets.all(32),
         child: Column(
           children: [
-            const Expanded(
+            Expanded(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  H1(text: 'Olá, Leandro!')
+                  const H1(text: 'Olá, Usuário!'),
+                  H3(text: 'Email: $userEmail')
                 ],
               )
             ),

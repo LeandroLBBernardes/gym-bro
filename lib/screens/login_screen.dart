@@ -25,7 +25,7 @@ class LoginScreenState extends State<LoginScreen> {
 
   void _submit() {
     if(_validate()) {
-      GoRouter.of(context).go('/home');
+      GoRouter.of(context).go('/home/$email');
     }else {
       CustomAlert.showAlert(context: context, text: errorMessage);
     }
@@ -44,7 +44,12 @@ class LoginScreenState extends State<LoginScreen> {
     }
 
     if(password.isEmpty) {
-      errorMessage += '\n- Preencha o campo senha.';
+      if(errorMessage.isEmpty) {
+        errorMessage += '- Preencha o campo senha.';
+      }else {
+        errorMessage += '\n- Preencha o campo senha.';
+      }
+        
       setState(() {
         errorPassword = true;
         isValid = false;

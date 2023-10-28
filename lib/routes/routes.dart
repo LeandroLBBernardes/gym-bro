@@ -35,8 +35,10 @@ final routes = GoRouter(
     ),
     GoRoute(
       name: 'home_screen',
-      path: '/home',
-      builder: (context, state) => const HomeScreen(),
+      path: '/home/:email',
+      builder: (context, state) => HomeScreen(
+        email: state.pathParameters['email']!,
+      ),
     ),
   ],
 );
